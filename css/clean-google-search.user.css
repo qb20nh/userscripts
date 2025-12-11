@@ -14,14 +14,8 @@
 [role="listitem"]:has(a[href^="/search?q="][href*="&udm=50"]), /* AI Mode button */
 [data-initq], /* Inline search suggestion */
 #bres, /* Bottom search suggestion */
-#tsf [role="presentation"]>[role="presentation"], /* Searchbar search suggestion */
-#slim_appbar:empty, [style="margin-top:12px"]:empty /* Margin fix */
+#tsf [role="presentation"]>[role="presentation"] /* Searchbar search suggestion */
 {
     display: none;
-}
-
-#rcnt>:not(#center_col,#rhs,:first-of-type) .kp-wholepage-osrp>:has(g-dropdown-menu) /* Margin fix */
-{
-    margin-top: 0;
 }
 }
