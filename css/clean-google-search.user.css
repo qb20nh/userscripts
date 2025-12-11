@@ -1,3 +1,12 @@
+/* ==UserStyle==
+@name clean-google-search
+@description Clean up the google search results page
+@license MIT
+@author qb20nh
+@homepage https://github.com/qb20nh/userscripts/
+@version 0.1.0
+==/UserStyle== */
+
 @-moz-document url-prefix("https://www.google.com/search") {
 [data-mcp="18"], /* AI Overview */
 #rso>div:has(ai-mode-inline-card), /* AI Mode Promo Card */
