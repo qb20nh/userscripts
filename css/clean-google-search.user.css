@@ -5,16 +5,19 @@
 @author qb20nh
 @homepageURL https://github.com/qb20nh/userscripts/
 @namespace com.qb20nh.userscripts
-@version 0.1.0
+@version 0.1.1
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://www.google.com/search") {
-[data-mcp="18"], /* AI Overview */
+[data-mcp="18"]>*, /* AI Overview */
 #rso>div:has(ai-mode-inline-card), /* AI Mode Promo Card */
 [role="listitem"]:has(a[href^="/search?q="][href*="&udm=50"]), /* AI Mode button */
 [data-initq], /* Inline search suggestion */
 #bres, /* Bottom search suggestion */
-#tsf [role="presentation"]>[role="presentation"] /* Searchbar search suggestion */
+#tsf [role="presentation"]>[role="presentation"], /* Searchbar search suggestion */
+[aria-label="Search by voice"], /* Voice search button */
+[aria-label="Search by image"], /* Google lens button */
+#gb>:has([aria-label="Search Labs"]) /* Search labs button */
 {
     display: none;
 }
