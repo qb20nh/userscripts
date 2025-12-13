@@ -1,0 +1,168 @@
+/* ==UserStyle==
+@name clean-naver-home
+@description Clean up the naver home page
+@license MIT
+@author qb20nh
+@homepageURL https://github.com/qb20nh/userscripts/
+@namespace com.qb20nh.userscripts
+@version 0.1.0
+==/UserStyle== */
+
+@-moz-document domain("www.naver.com") {
+#shortcutArea, /* shortcut bar */
+#topPayArea, /* pay button */
+#topTalkArea, /* talk button */
+#topShoppingArea, /* shopping icon */
+#root>:has(:is(#newsstand, #shopping, #feed)), /* main content */
+#right-content-area>*>:not(#account), /* right content except login */
+#account p:first-child, /* login text */
+#account :is([class^="MyView-module__thumb_setting"], [class^="MyView-module__my_menu"]),
+#account [class^="MyView-module__user_desc"]>:not([class^="MyView-module__desc_info"]),
+#account [class^="MyView-module__login_more"],
+#timeboard-svg, /* bg gradient */
+#root>:has(>a)>a:not(#viewSetting), /* scroll to top button */
+#none
+{
+    display: none;
+}
+
+/* position fix */
+#topNotiArea {
+    right: 54px !important;
+}
+
+
+/* login button */
+#account [class^="MyView-module__link_login"] {
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    font-size: 0;
+    padding: 0;
+    border-radius: 50%;
+
+    position: fixed;
+    top: -7px;
+    right: calc(50vw - 640px - 1.5px);
+    
+    cursor: pointer;
+    box-sizing: border-box;
+}
+/* login button click fix */
+#ad_premium_area,
+#special-logo {
+    pointer-events: none;
+}
+#account {
+    right: 0;
+    top: 0;
+    position: absolute;
+    width: 0;
+    height: 0;
+    z-index: 121;
+    box-shadow: none;
+}
+
+
+/* profile picture */
+#account [class^="MyView-module__user_thumb"] {
+    width: 44px;
+    height: 44px;
+    position: fixed;
+    top: 7px;
+    right: calc(50vw - 640px - 1.5px);
+    margin-right: 0;
+    pointer-events: none;
+}
+#account [class^="MyView-module__thumb_box"],
+#account [class^="MyView-module__thumb_box"]>img,
+#account [class^="MyView-module__thumb_box"]::before {
+    width: 44px;
+    height: 44px;
+}
+/* profile link override */
+#account [class^="MyView-module__info_name"] {
+    opacity: 0;
+    position: fixed;
+    top: 7px;
+    right: calc(50vw - 640px - 1.5px);
+    width: 44px;
+    height: 44px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+/* hide misc account info */
+#account [class^="MyView-module__info_name"]~* {
+    display: none;
+}
+
+
+/* logout button */
+#account [class^="MyView-module__btn_logout"] {
+    font-size: 0;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    
+    position: fixed;
+    top: 7px;
+    right: calc(50vw - 640px - 1.5px);
+}
+
+
+/* clean up footer */
+#footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60px;
+}
+#footer .aside_area,
+#footer .nbanner_area {
+    display: none;
+}
+#footer .corp_area {
+    position: relative;
+    top: -60px;
+    width: 1024px;
+}
+#footer>.footer_inner {
+    padding-bottom: 0;
+    height: 60px;
+}
+/* footer sizing fix */
+html, body, #wrap {
+    height: 100%;
+}
+#viewSetting {
+    translate: 0 -60px;
+}
+
+
+/* search bar */
+#search_area {
+    top: 0;
+    translate: 0 calc(50vh - 400%);
+}
+/* focus shift fix */
+#search_area.type_write #search>* {
+    translate: 0 -4px;
+}
+/* bg spill fix */
+.search_input_box {
+    background: none !important;
+}
+
+
+/* drag shift fix */
+#_nx_kbd {
+    translate: 0px -58px;
+}
+/* auto dark mode */
+html[data-theme="greenDark"] #_nx_kbd {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+
+}
