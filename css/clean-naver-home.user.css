@@ -5,10 +5,12 @@
 @author qb20nh
 @homepageURL https://github.com/qb20nh/userscripts/
 @namespace com.qb20nh.userscripts
-@version 0.1.0
+@version 0.2.0
 ==/UserStyle== */
 
 @-moz-document domain("www.naver.com") {
+
+/* home */
 #shortcutArea, /* shortcut bar */
 #topPayArea, /* pay button */
 #topTalkArea, /* talk button */
@@ -163,6 +165,21 @@ html, body, #wrap {
 html[data-theme="greenDark"] #_nx_kbd {
     filter: invert(1) hue-rotate(180deg);
 }
+
+
+}
+
+
+@-moz-document url-prefix("https://search.naver.com/search.naver") {
+
+/* search */
+#sub_pack, /* aside promoted content */
+div[data-block-id^="qra"], /* inline search suggestion */
+#none
+{
+    display: none;
+}
+
 
 
 }
