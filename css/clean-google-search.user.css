@@ -9,16 +9,22 @@
 ==/UserStyle== */
 
 @-moz-document url-prefix("https://www.google.com/search") {
-[data-mcp="18"]>*, /* AI Overview */
-#rso>div:has(ai-mode-inline-card), /* AI Mode Promo Card */
-[role="listitem"]:has(a[href^="/search?q="][href*="&udm=50"]), /* AI Mode button */
-[data-initq], /* Inline search suggestion */
-#bres, /* Bottom search suggestion */
-#tsf [role="presentation"]>[role="presentation"], /* Searchbar search suggestion */
-[aria-label="Search by voice"], /* Voice search button */
-[aria-label="Search by image"], /* Google lens button */
-#gb>:has([aria-label="Search Labs"]) /* Search labs button */
-{
-    display: none;
-}
+    #cnt:only-child [data-mcp="18"]>*, /* AI Overview */
+    #rso>div:has(ai-mode-inline-card), /* AI Mode Promo Card */
+    [data-initq], /* Inline search suggestion */
+    #bres, /* Bottom search suggestion */
+    #tsf [role="presentation"]>[role="presentation"], /* Searchbar search suggestion */
+    [aria-label="Search by voice"], /* Voice search button */
+    [aria-label="Search by image"], /* Google lens button */
+    #gb>:has([aria-label="Search Labs"]), /* Search labs button */
+    #none
+    {
+        display: none;
+    }
+
+    
+    [role="listitem"]:has(a[href^="/search?q="][href*="&udm=50"]), /* AI Mode button */
+    #none {
+        opacity: 0.5; /* change to display: none; if want to delete */
+    }
 }
